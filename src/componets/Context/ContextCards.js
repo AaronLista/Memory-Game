@@ -23,7 +23,7 @@ function CardsProvider({children}){
         initialDeck.push(card)
     }
 
-    console.log(initialDeck)
+    initialDeck.sort(()=>Math.random()-0.5)
 
     const [cards, setcards] = React.useState(initialDeck);
 
