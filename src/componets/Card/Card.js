@@ -9,10 +9,10 @@ export const Card = ({card, onRotateCard}) => {
 
       <div className='Card' style={{transform:"rotateY("+degs+")"}} onClick={onRotateCard}>  
         <div className='Face FrontFace'>
-            <Icon value="hippo"></Icon>
+            ?
         </div>
         <div className='Face BackFace'>
-            {card.value}
+            <Icon value={card.value}/>
         </div>
       </div>
 
@@ -20,10 +20,10 @@ export const Card = ({card, onRotateCard}) => {
 
       <div className='Card' style={{transform:"rotateY("+degs+")"}}>  
         <div className='Face FrontFace'>
-            <Icon value="hippo"></Icon>
+            ?
         </div>
         <div className='Face BackFace' style={{backgroundColor:"white"}}>
-            done
+          <Icon value={card.value}/>
         </div>
       </div>
   )

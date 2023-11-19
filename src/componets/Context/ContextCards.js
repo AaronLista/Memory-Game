@@ -71,7 +71,7 @@ function CardsProvider({children}){
     const countPairsCards = ()=>{
         const pairedCards = cards.filter((card)=>(!card.enable))
         if(pairedCards.length === cards.length){
-
+            alert("you win")
         }
     }
 
