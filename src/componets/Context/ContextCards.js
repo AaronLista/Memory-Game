@@ -4,35 +4,26 @@ const CardsContex = React.createContext();
 
 function CardsProvider({children}){
 
-    const values = ["cat","dog","dove","dragon","fish","frog","hippo","spider"]
+    const values = ["cat","dog","dove","dragon","fish","frog","hippo","spider"];
 
-    var initialDeck = [
-        {
-            id: 1,
-            rotate:false,
-            enable:true,
-            value: "cat"
-        },
-        {
-            id: 2,
-            rotate:false,
-            enable:true,
-            value: "cat"
-        },
-        {
-            id: 3,
-            rotate:false,
-            enable:true,
-            value: "dog"
-        },
-        {
-            id: 4,
-            rotate:false,
-            enable:true,
-            value: "dog"
+    var initialDeck = []
 
+    for (let index = 0; index < 16; index++) {
+        let card = {
+            id: index,
+            rotate:false,
+            enable:true,
+            value: ""
         }
-    ]
+        if(index<=7){
+            card.value = values[index]
+        } else {
+            card.value = values[index-8]
+        }
+        initialDeck.push(card)
+    }
+
+    console.log(initialDeck)
 
     const [cards, setcards] = React.useState(initialDeck);
 
