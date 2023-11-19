@@ -4,30 +4,32 @@ const CardsContex = React.createContext();
 
 function CardsProvider({children}){
 
+    const values = ["cat","dog","dove","dragon","fish","frog","hippo","spider"]
+
     var initialDeck = [
         {
             id: 1,
             rotate:false,
             enable:true,
-            value: "A"
+            value: "cat"
         },
         {
             id: 2,
             rotate:false,
             enable:true,
-            value: "A"
+            value: "cat"
         },
         {
             id: 3,
             rotate:false,
             enable:true,
-            value: "B"
+            value: "dog"
         },
         {
             id: 4,
             rotate:false,
             enable:true,
-            value: "B"
+            value: "dog"
 
         }
     ]
@@ -60,6 +62,7 @@ function CardsProvider({children}){
                 if(CardsToCompare[0].value === CardsToCompare[1].value){
                     disableCard(CardsToCompare[0].id);
                     disableCard(CardsToCompare[1].id);
+                    countPairsCards()
                     setCardsToCompare([])
                 } else {
                     let card1 = CardsToCompare[0].id;
@@ -71,6 +74,13 @@ function CardsProvider({children}){
                     },1000)
                 }
             }
+        }
+    }
+
+    const countPairsCards = ()=>{
+        const pairedCards = cards.filter((card)=>(!card.enable))
+        if(pairedCards.length === cards.length){
+
         }
     }
 
