@@ -3,6 +3,7 @@ import './App.css';
 import { CardsProvider} from './componets/Context/ContextCards';
 import { CardsContainer } from './componets/CardsContainer/CardsContainer';
 import { ModalMenu } from './componets/ModalMenu/ModalMenu';
+import { Menu } from './componets/Menu/Menu';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
         <CardsContainer></CardsContainer>
       </div>
       <ModalMenu>
-        <h2>Ganaste!</h2>
+        <Menu></Menu>
       </ModalMenu>
     </CardsProvider>
   );

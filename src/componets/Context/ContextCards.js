@@ -7,12 +7,12 @@ function CardsProvider({children}){
     const values = ["cat","dog","dove","dragon","fish","frog","hippo","spider"];
 
     var initialDeck = []
-
+    
     for (let index = 0; index < 16; index++) {
         let card = {
             id: index,
             rotate:false,
-            enable:true,
+            enable:false,
             value: ""
         }
         if(index<=7){
@@ -29,13 +29,59 @@ function CardsProvider({children}){
 
     const [CardsToCompare, setCardsToCompare] = React.useState([])
 
-    const [modalDisplay, setModalDisplay] = React.useState(false)
+    const [modalDisplay, setModalDisplay] = React.useState(true)
+
+    const [gameStatus,setGameStatus] = React.useState(false)
+
+    const startGame = ()=>{
+        console.log(cards)
+        setModalDisplay(false)
+        rotateAllCards()
+    }
+
+    const createNewDeck = ()=>{
+        const values = ["cat","dog","dove","dragon","fish","frog","hippo","spider"];
+
+        let newDeck = []
+    
+        for (let index = 0; index < 16; index++) {
+            let card = {
+                id: index,
+                rotate:false,
+                enable:false,
+                value: ""
+            }
+            if(index<=7){
+                card.value = values[index]
+            } else {
+                card.value = values[index-8]
+            }
+            newDeck.push(card)
+        }
+
+        newDeck.sort(()=>Math.random()-0.5)
+        console.log(newDeck)
+        setcards(newDeck)
+    }
 
     const rotateCard = (id)=>{
         const NewCards = [...cards];
         const index = NewCards.findIndex((card)=>(card.id === id))
         NewCards[index].rotate = !NewCards[index].rotate
         setcards(NewCards)
+    }
+
+
+    const rotateAllCards = ()=>{
+        for (let i = 0; i < 16; i++) {
+            rotateCard(i)            
+        }
+        setTimeout(()=>{
+            for (let i = 0; i < 16; i++) {
+                rotateCard(i)      
+                disableCard(i)       
+            }
+        },1000)
     }
 
     const disableCard = (id)=>{
@@ -73,7 +119,9 @@ function CardsProvider({children}){
     const countPairsCards = ()=>{
         const pairedCards = cards.filter((card)=>(!card.enable))
         if(pairedCards.length === cards.length){
+            setGameStatus(true)
             toggleModal()
+            createNewDeck()
         }
     }
 
@@ -86,7 +134,10 @@ function CardsProvider({children}){
             {
                 cards, 
                 compareCards,
-                modalDisplay
+                modalDisplay,
+                gameStatus,
+                startGame,
+                rotateAllCards
             }
         }>
             {children}
