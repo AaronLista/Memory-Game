@@ -29,6 +29,8 @@ function CardsProvider({children}){
 
     const [CardsToCompare, setCardsToCompare] = React.useState([])
 
+    const [modalDisplay, setModalDisplay] = React.useState(false)
+
     const rotateCard = (id)=>{
         const NewCards = [...cards];
         const index = NewCards.findIndex((card)=>(card.id === id))
@@ -71,15 +73,20 @@ function CardsProvider({children}){
     const countPairsCards = ()=>{
         const pairedCards = cards.filter((card)=>(!card.enable))
         if(pairedCards.length === cards.length){
-            alert("you win")
+            toggleModal()
         }
+    }
+
+    const toggleModal = ()=>{
+        setModalDisplay(!modalDisplay)
     }
 
     return(
         <CardsContex.Provider value={
             {
                 cards, 
-                compareCards
+                compareCards,
+                modalDisplay
             }
         }>
             {children}

@@ -13,6 +13,7 @@ function App() {
         <CardsContainer></CardsContainer>
       </div>
       <ModalMenu>
+        <h2>Ganaste!</h2>
       </ModalMenu>
     </CardsProvider>
   );
