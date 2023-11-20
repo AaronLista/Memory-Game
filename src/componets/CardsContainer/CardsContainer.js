@@ -4,7 +4,7 @@ import { CardsContex } from '../Context/ContextCards'
 import './CardsContainer.css'
 
 export const CardsContainer = () => {
-    const {cards,compareCards} = React.useContext(CardsContex)
+    const {cards,compareCards} = React.useContext(CardsContex);
 
   return (
     <div className='CardsContainer'>

@@ -1,9 +1,9 @@
 .Card{
     position: relative;
-    width: 150px;
-    height: 150px;
     background-color: coral;
     border-radius: 15px;
+    width: 100%;
+    max-width: 150px;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
 }
