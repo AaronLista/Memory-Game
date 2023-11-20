@@ -1,11 +1,12 @@
 .Card{
     position: relative;
-    background-color: coral;
+    background-color: #e71d36;
     border-radius: 15px;
     width: 100%;
     max-width: 150px;
     transform-style: preserve-3d;
     transition: all 0.5s ease;
+    box-shadow: 5px 5px orangered;
 }
 
 .Face{
@@ -22,4 +23,5 @@
     transform: rotateY(180deg);
     transition: all 0.5s ease;
     background-color: white;
+    border-radius: 15px;
 }
