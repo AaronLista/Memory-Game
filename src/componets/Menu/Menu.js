@@ -10,7 +10,7 @@ export const Menu = () => {
     <div className='Menu'>
         {gameStatus?
           <>
-          <h2>You WON</h2>
+          <h2>YOU WON!</h2>
           <Timer></Timer>
           </>
           :
