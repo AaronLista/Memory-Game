@@ -27,16 +27,26 @@ function CardsProvider({children}){
 
     const [cards, setcards] = React.useState(initialDeck);
 
-    const [CardsToCompare, setCardsToCompare] = React.useState([])
+    const [CardsToCompare, setCardsToCompare] = React.useState([]);
 
-    const [modalDisplay, setModalDisplay] = React.useState(true)
+    const [modalDisplay, setModalDisplay] = React.useState(true);
 
-    const [gameStatus,setGameStatus] = React.useState(false)
+    const [gameStatus,setGameStatus] = React.useState(false);
+
+    const [time, setTime] = React.useState({ms:0, s:0, m:0});
+
+    const [timer, setTimer] = React.useState()
+
+    var UpdateMs = time.ms, UpdateS = time.s, UpdateM = time.m;
+
 
     const startGame = ()=>{
-        console.log(cards)
+        resetTimer()
         setModalDisplay(false)
-        rotateAllCards()
+        rotateAllCards();
+        setTimeout(()=>{
+            StartTimer();
+        },1000)        
     }
 
     const createNewDeck = ()=>{
@@ -64,6 +74,35 @@ function CardsProvider({children}){
         setcards(newDeck)
     }
 
+    const StartTimer = ()=>{
+        runTimer();
+        setTimer(setInterval(runTimer,10));
+    }
+
+    const runTimer = ()=>{
+        UpdateMs++;
+        if(UpdateS === 60){
+            UpdateS = 0;
+            UpdateM++;
+        }
+        if(UpdateMs === 100){
+            UpdateMs = 0;
+            UpdateS++;
+        }
+        return(setTime({ms:UpdateMs, s:UpdateS, m:UpdateM}))
+    }
+
+    const StopTimer = ()=>{
+        clearInterval(timer)
+    }
+
+    const resetTimer = ()=>{
+        setTime({ms:0, s:0, m:0})
+        UpdateM = 0;
+        UpdateS = 0;
+        UpdateMs= 0;
+    }
+
     const rotateCard = (id)=>{
         const NewCards = [...cards];
         const index = NewCards.findIndex((card)=>(card.id === id))
@@ -79,7 +118,7 @@ function CardsProvider({children}){
         setTimeout(()=>{
             for (let i = 0; i < 16; i++) {
                 rotateCard(i)      
-                disableCard(i)       
+                disableCard(i)    
             }
         },1000)
     }
@@ -122,6 +161,7 @@ function CardsProvider({children}){
             setGameStatus(true)
             toggleModal()
             createNewDeck()
+            StopTimer()
         }
     }
 
@@ -137,7 +177,10 @@ function CardsProvider({children}){
                 modalDisplay,
                 gameStatus,
                 startGame,
-                rotateAllCards
+                rotateAllCards,
+                time,
+                resetTimer,
+                StopTimer
             }
         }>
             {children}
