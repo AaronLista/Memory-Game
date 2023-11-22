@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/AaronLista/Memory-Game/static/css/main.c3f85b18.css",
+    "main.js": "/AaronLista/Memory-Game/static/js/main.c32b8b7d.js",
+    "static/media/spider.svg": "/AaronLista/Memory-Game/static/media/spider.d9134fa5d0e62a2952c600a4abd529f4.svg",
+    "static/media/hippo.svg": "/AaronLista/Memory-Game/static/media/hippo.07368af23527c06c9c916b84f28f7ab5.svg",
+    "static/media/dragon.svg": "/AaronLista/Memory-Game/static/media/dragon.18710d7de693aeb53ffbf068a9fcf780.svg",
+    "static/media/cat.svg": "/AaronLista/Memory-Game/static/media/cat.aee10ab2ece793b5caf23bdda55c5b08.svg",
+    "static/media/dove.svg": "/AaronLista/Memory-Game/static/media/dove.630aee7ccf61368c7a9fdd7f0052867d.svg",
+    "static/media/frog.svg": "/AaronLista/Memory-Game/static/media/frog.23176acd009bbad20f05daa9b2b8b695.svg",
+    "static/media/dog.svg": "/AaronLista/Memory-Game/static/media/dog.d132a658cbedd7ccc641a2dc1e868e49.svg",
+    "index.html": "/AaronLista/Memory-Game/index.html",
+    "static/media/fish.svg": "/AaronLista/Memory-Game/static/media/fish.762a40033da6b81fc8d1c59f21799bbc.svg",
+    "static/media/question.svg": "/AaronLista/Memory-Game/static/media/question.895c929fbf154f36c8a4555cb324738b.svg",
+    "main.c3f85b18.css.map": "/AaronLista/Memory-Game/static/css/main.c3f85b18.css.map",
+    "main.c32b8b7d.js.map": "/AaronLista/Memory-Game/static/js/main.c32b8b7d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c3f85b18.css",
+    "static/js/main.c32b8b7d.js"
+  ]
+}
