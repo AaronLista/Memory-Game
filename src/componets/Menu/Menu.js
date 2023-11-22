@@ -11,10 +11,11 @@ export const Menu = () => {
         {gameStatus?
           <>
           <h2>YOU WON!</h2>
+
           <Timer></Timer>
           </>
           :
-          ""
+          <h2>Ready?</h2>
         }
         <button className='button start' onClick={()=>{
           startGame()
